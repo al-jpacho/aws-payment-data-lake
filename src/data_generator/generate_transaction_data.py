@@ -98,7 +98,7 @@ def pick_valid_tuple() -> Tuple[str, str, str, float, str, str]:
     currency = random.choice(CURRENCIES)
     status = random.choices(
         STATUSES,
-        weights=[32, 45, 8, 2, 13],  # mostly SETTLED/AUTHORISED/DECLINED
+        weights=[30, 40, 5, 2, 15, 5, 2, 1], # mostly authorised/settled/declined
         k=1,
     )[0]
     country = random.choice(COUNTRIES)
