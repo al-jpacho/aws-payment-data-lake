@@ -18,7 +18,7 @@ Notes:
   - Keep rows_per_day modest for cost control when testing in AWS.
 
 Example:
-  python src/data_gen/generate_transactions.py \
+  python src/data_generator/generate_transaction_data.py \
       --start-date 2025-08-10 --end-date 2025-08-12 \
       --rows-per-day 1000 --invalid-rate 0.02 --seed 42
 """
