@@ -38,7 +38,7 @@ from typing import Iterable, List, Tuple
 # ---- Domain lists (tweak freely) ---------------------------------------------
 
 CURRENCIES: List[str] = ["GBP", "USD", "EUR"]
-STATUSES: List[str] = ["AUTHORISED", "SETTLED", "REFUNDED", "CHARGEBACK", "DECLINED"]
+STATUSES: List[str] = ["AUTHORISED", "SETTLED", "REFUNDED", "CHARGEBACK", "DECLINED", "PENDING", "SUCCESS", "FAILED"]
 COUNTRIES: List[str] = ["GB", "US", "FR", "DE", "ES", "IE", "NL", "IT"]
 
 # A small merchant pool for realism
