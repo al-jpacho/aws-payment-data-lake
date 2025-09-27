@@ -117,7 +117,7 @@ def validate_bronze_df(df):
 
 bronze_df = glueContext.create_dynamic_frame.from_catalog(
     database="payments_db",
-    table_name="bronze_transactions"
+    table_name="bronze_transactions_parquet"
 ).toDF()
 
 silver_df = validate_bronze_df(bronze_df)
