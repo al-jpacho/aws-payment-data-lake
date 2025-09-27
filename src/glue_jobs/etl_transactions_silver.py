@@ -110,3 +110,28 @@ def validate_bronze_df(df):
     df = validate_txn_statuses(df) 
     df = curate_status(df)
     return df  
+
+# -----------------------------
+# Main
+# -----------------------------
+
+bronze_df = glueContext.create_dynamic_frame.from_catalog(
+    database="payments_db",
+    table_name="bronze_transactions"
+).toDF()
+
+silver_df = validate_bronze_df(bronze_df)
+
+(
+    silver_df
+    .write
+    .mode("append")
+    .partitionBy("txn_date")
+    .parquet("s3://payments-lake-jordanpacho/silver/transactions_parquet/")
+)
+
+
+# -----------------------------
+# Commit job
+# -----------------------------
+job.commit()
