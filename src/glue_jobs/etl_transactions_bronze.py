@@ -121,16 +121,13 @@ CLEANING_FUNCTIONS = {
 # Main
 # -----------------------------
 raw_txn_df = glueContext.create_dynamic_frame.from_catalog(
-    database="payments_db",
-    table_name="raw_transactions"
+    database="payments_db", table_name="raw_transactions"
 ).toDF()
 
 bronze_df = apply_cleaning_functions(raw_txn_df, CLEANING_FUNCTIONS)
 
 (
-    bronze_df
-    .write
-    .mode("append")
+    bronze_df.write.mode("append")
     .partitionBy("txn_date")
     .parquet("s3://payments-lake-jordanpacho/bronze/transactions_parquet/")
 )
