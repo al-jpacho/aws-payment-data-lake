@@ -21,6 +21,9 @@ Example:
   python src/data_generator/generate_transaction_data.py \
       --start-date 2025-08-10 --end-date 2025-08-12 \
       --rows-per-day 1000 --invalid-rate 0.02 --seed 42
+
+Data sync to S3 (one-off):
+    aws s3 cp data/raw/ s3://payments-lake-jordanpacho/raw/ --recursive
 """
 
 from __future__ import annotations
